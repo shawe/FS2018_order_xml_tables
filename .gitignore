@@ -1,0 +1,10 @@
+/nbproject/
+/.idea/
+.vscode
+.project
+.settings
+.buildpath
+/vendor/
+.DS_Store
+*.cache
+*.lock

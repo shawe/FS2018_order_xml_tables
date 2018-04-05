@@ -13,11 +13,6 @@
             "FacturaScriptsUtils\\": "src/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "master"
-        }
-    },
     "require": {},
     "bin": [
         "bin/order-xml-tables"

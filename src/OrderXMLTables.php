@@ -112,22 +112,30 @@ class OrderXMLTables
             $xml = simplexml_load_string(file_get_contents($this->folderSrcPath . $fileName));
             // Get all children of table into an array
             $table = (array) $xml->children();
+            if (!isset($table['column'])) {
+                echo 'File is incorrect ' . $this->folderSrcPath . $fileName . \PHP_EOL;
+                break;
+            }
             $columns = $table['column'];
-            $constraints = $table['constraint'];
+            if (isset($table['constraint'])) {
+                $constraints = $table['constraint'];
+            }
 
             // Call usort on the array
             if (!\is_object($columns)) {
                 usort($columns, [$this, 'sortName']);
             }
 
-            if (!\is_object($constraints)) {
+            if (isset($table['constraint']) && !\is_object($constraints)) {
                 usort($constraints, [$this, 'sortName']);
             }
 
             // Generate string XML result
             $strXML = $this->generateXMLHeader($fileName);
             $strXML .= $this->generateXMLContent($columns);
-            $strXML .= $this->generateXMLContent($constraints, 'constraint');
+            if (isset($table['constraint'])) {
+                $strXML .= $this->generateXMLContent($constraints, 'constraint');
+            }
             $strXML .= $this->generateXMLFooter();
 
             $dom = new DOMDocument();

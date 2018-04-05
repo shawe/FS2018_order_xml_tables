@@ -13,7 +13,9 @@
             "FacturaScriptsUtils\\": "src/"
         }
     },
-    "require": {},
+    "require": {
+        "php": ">=7.0.8"
+    },
     "bin": [
         "bin/order-xml-tables"
     ]

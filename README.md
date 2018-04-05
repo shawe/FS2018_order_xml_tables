@@ -4,6 +4,6 @@
 ## Installation
 Inside your FacturaScripts run this:
 ```
-composer require --dev facturascripts_utils/order_xml_tables
-./bin/order-xml-tables
+composer require --dev facturascripts_utils/order_xml_tables:dev-master
+./vendor/bin/order-xml-tables
 ```

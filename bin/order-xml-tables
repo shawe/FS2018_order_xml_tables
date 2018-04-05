@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$order = new FacturaScriptsUtils\OrderXMLTables();
+$srcPath = '../facturascripts/Core/Table/';
+$order->setFolderSrcPath($srcPath);
+$order->setFolderDstPath($srcPath);
+$order->setTagName('name');
+$exitCode = $order->run();
+
+exit($exitCode);

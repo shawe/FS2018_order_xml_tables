@@ -16,5 +16,10 @@
     "require": {},
     "bin": [
         "bin/order-xml-tables"
-    ]
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    }
 }
